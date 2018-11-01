@@ -7,6 +7,8 @@ Created on Wed Oct 31 21:25:25 2018
 
 #!/usr/bin/env python3
 from math import exp,log,sqrt
+import re
+from datetime import date,time,datetime,timedelta
 
 #############String#############
 print("output #1:learn python")
@@ -94,3 +96,59 @@ string8_list = string8.split()
 print("Output #37 (on each word):")
 for word in string8_list:
     print("{0:s}".format(word.capitalize()))
+    
+#############regexp#############
+#每次在字串發現組合時，就印出它
+string = "The quick brown fox jumps over the lazy dog."
+string_list = string.split()
+pattern = re.compile(r"(?P<match_word>The)",re.I)
+print("Output #39:")
+for word in string_list:
+    if pattern.search(word):
+        print("{:s}".format(pattern.search(word).group('match_word')))
+        
+#將字串中的單字'the'換成字母'a'
+string = 'The quick brown fox jumps over the lazy dog.'
+string_to_find = r"The"
+pattern = re.compile(string_to_find,re.I)
+print("Output #40: {:s}".format(pattern.sub("a",string)))
+
+#############datetime#############
+#印出今天日期以及年、月、日
+today = date.today()
+print("Output #41: today:{0!s}".format(today))
+print("Output #42: {0!s}".format(today.year))
+print("Output #43: {0!s}".format(today.month))
+print("Output #43: {0!s}".format(today.day))
+current_datetime = datetime.today()
+print("Output #45: {0!s}".format(current_datetime))
+      
+#使用timedelta
+one_day = timedelta(days=-1)
+yesterday = today + one_day
+print("Output #46:one_day: {0!s} yesterday: {1!s}".format(one_day,yesterday))
+eight_hours = timedelta(hours=-8)
+print("Output #47: {0!s} {1!s}".format(eight_hours.days, eight_hours.seconds))
+
+#計算兩個日期相差幾天
+date_diff = today - yesterday
+print("Output #48: {0!s}".format(date_diff))
+print("Output #49: {0!s}".format(str(date_diff).split()[0]))
+    
+#用strftime建立特定格式的字串
+print("Output #50: {:s}".format(today.strftime('%m/%d/%Y')))
+print("Output #51: {:s}".format(today.strftime('%b %d, %Y')))
+print("Output #52: {:s}".format(today.strftime('%Y-%m-%d')))
+print("Output #53: {:s}".format(today.strftime('%B %d, %Y')))
+
+#建立不同日期字串格式
+date1 = today.strftime('%m/%d/%Y')
+date2 = today.strftime('%b %d, %Y')
+date3 = today.strftime('%Y-%m-%d')
+date4 = today.strftime('%B %d, %Y')
+print("Output #54: {!s}".format(datetime.strptime(date1, '%m/%d/%Y')))
+print("Output #55: {!s}".format(datetime.strptime(date2, '%b %d, %Y')))
+print("Output #56: {!s}".format(datetime.date(datetime.strptime\
+(date3, '%Y-%m-%d'))))
+print("Output #57: {!s}".format(datetime.date(datetime.strptime\
+(date4, '%B %d, %Y'))))
