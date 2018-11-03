@@ -9,7 +9,8 @@ Created on Wed Oct 31 21:25:25 2018
 from math import exp,log,sqrt
 import re
 from datetime import date,time,datetime,timedelta
-
+from operator import itemgetter
+    
 #############String#############
 print("output #1:learn python")
 
@@ -152,3 +153,70 @@ print("Output #56: {!s}".format(datetime.date(datetime.strptime\
 (date3, '%Y-%m-%d'))))
 print("Output #57: {!s}".format(datetime.date(datetime.strptime\
 (date4, '%B %d, %Y'))))
+
+#############串列#############
+a_list=[1,2,3]
+print("Output #58 : {}".format(a_list))
+print("Output #59 : a_list has {} elements.".format(len(a_list)))
+print("Output #60 : the maximum value in a_list is {}.".format(max(a_list))) 
+print("Output #61 : the maximum value in a_list is {}.".format(min(a_list))) 
+another_list = ['printer',5,['star','circle',9]]
+print("Output #62: {}".format(another_list))
+print("Output #63: another_list also has {} elements.".format(len(another_list)))
+print("Output #64: 5 is in another_list {} time.".format(another_list.count(5))) 
+
+#############串列切片#############      
+print("Output #73: {}".format(a_list[0:2]))
+print("Output #74: {}".format(another_list[:2]))
+print("Output #75: {}".format(a_list[1:3]))
+print("Output #76: {}".format(another_list[1:]))
+a_new_list = a_list[:]
+print("Output #77: {}".format(a_new_list))
+
+a_longer_list = a_list + another_list
+print("Output #78: {}".format(a_longer_list))
+
+#############in not in#############   
+a = 2 in a_list
+print("Output #79: {}".format(a))
+if 2 in a_list:
+    print("Output #80:2 is in {}.".format(a_list))
+b=6 not in a_list
+print("Output #81: {}".format(b))
+if 6 not in a_list:
+    print("Output #82: 6 is not in {}.".format(a_list))
+    
+#############append remove pop############# 
+a_list.append(4)
+a_list.append(5)
+a_list.append(6)
+print("Output #83: {}".format(a_list))
+a_list.remove(5)
+print("Output #84: {}".format(a_list))
+a_list.pop()
+a_list.pop()
+print("Output #85: {}".format(a_list))
+      
+#############reverse############# 
+a_list.reverse()
+print("Output #86: {}".format(a_list))
+a_list.reverse()
+print("Output #87: {}".format(a_list))
+      
+#############sort############# 
+unordered_list = [3,5,1,7,2,8,4,9,0,6]
+print("Output #88: {}".format(unordered_list))
+list_copy = unordered_list[:]
+list_copy.sort()
+print("Output #89: {}".format(list_copy))
+print("Output #90: {}".format(unordered_list)) 
+      
+#############sorted#############  
+my_lists = [[1,2,3,4],[4,3,2,1],[2,4,1,3]]
+my_lists_sorted_by_index_3 = sorted(my_lists,key=lambda index_value:index_value[3])
+print("Output #91: {}".format(my_lists_sorted_by_index_3))  
+
+#使用itemgetter()
+my_lists = [[123,2,2,444],[22,6,6,444],[354,4,4,678],[236,5,5,678],[578,1,1,290],[641,1,1,290]]
+my_lists_sorted_by_index_3_and_0 = sorted(my_lists,key=itemgetter(3,0))
+print("Output #92: {}".format(my_lists_sorted_by_index_3_and_0)) 
