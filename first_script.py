@@ -241,3 +241,28 @@ my_list = [1,2,3]
 my_tuple = ('x','y','z')
 print("Output #100: {}".format(tuple(my_list)))
 print("Output #101: {}".format(list(my_tuple)))
+      
+#############dict#############
+empty_dict = {}
+a_dict = {'one':1,'two':2,'three':3}
+print("Output #102: {}".format(a_dict))
+print("Output #103: a_dict has {!s} elements".format(len(a_dict)))
+another_dict = {'x':'printer','y':5,'z':['star','circle',9]}
+print("Output #104: {}".format(another_dict))
+print("Output #105: another_dict also has {!s} elements".format(len(another_dict)))
+print("Output #106: {}".format(a_dict['two']))
+print("Output #107: {}".format(another_dict['z']))
+#copy
+a_new_dict = a_dict.copy()
+print("Output #108: {}".format(a_new_dict))
+#key,values,items
+print("Output #109: {}".format(a_dict.keys()))
+a_dict_keys = a_dict.keys()
+print("Output #110: {}".format(a_dict_keys))
+print("Output #111: {}".format(a_dict.values()))
+print("Output #112: {}".format(a_dict.items()))
+#in,not in,get
+if 'y' in another_dict:
+    print("Output #114: y is a key in another_dict: {}".format(another_dict.keys()))
+if 'c' not in another_dict:
+    print("Output #115: c is not a key in another_dict: {}".format(another_dict.keys()))
