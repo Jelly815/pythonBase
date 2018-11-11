@@ -10,7 +10,8 @@ from math import exp,log,sqrt
 import re
 from datetime import date,time,datetime,timedelta
 from operator import itemgetter
-    
+import numpy as np
+
 #############String#############
 print("output #1:learn python")
 
@@ -266,3 +267,94 @@ if 'y' in another_dict:
     print("Output #114: y is a key in another_dict: {}".format(another_dict.keys()))
 if 'c' not in another_dict:
     print("Output #115: c is not a key in another_dict: {}".format(another_dict.keys()))
+print("Output #116: {!s}".format(a_dict.get('three')))
+print("Output #117: {!s}".format(a_dict.get('four')))
+print("Output #118: {!s}".format(a_dict.get('four','Not in dict')))
+#sorted
+print("Output #119: {}".format(a_dict))
+dict_copy = a_dict.copy()
+ordered_dict1 = sorted(dict_copy.items(),key=lambda item:item[0])   # 0: key
+print("Output #120 (order by keys): {}".format(ordered_dict1))
+ordered_dict2 = sorted(dict_copy.items(),key=lambda item:item[1])   # 1: value
+print("Output #121 (order by values): {}".format(ordered_dict2))
+ordered_dict3 = sorted(dict_copy.items(),key=lambda x:x[1],reverse=True)
+print("Output #122 (order by values,descending): {}".format(ordered_dict3)) #按照值降幕排序
+ordered_dict4 = sorted(dict_copy.items(),key=lambda x:x[1],reverse=False)
+print("Output #123 (order by values,ascending): {}".format(ordered_dict4))  #按照值升幕排序
+      
+#############if elif else#############
+x=5
+if x>4 or x !=9:
+    print("Output #124:{}".format(x))
+else:
+    print("Output #124:x is not greater than 4")
+
+if x>6:
+    print("Output #125: x is greater than six")
+elif x>4 and x == 5:
+    print("Output #125:{}".format(x*x))
+else:
+    print("Output #125:x is not greater than 4")
+          
+#############for#############
+y=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
+z=['Annie','Betty','Claire','Daphne','Ellie','Franchesca','Greta','Holly','Isabel','Jenny']
+
+print("Output #126:")
+for month in y:
+    print("{!s}".format(month))
+
+print("Output #127:(index value:name in list)")
+for i in range(len(z)):
+    print("{0!s}: {1:s}".format(i,z[i]))
+print("Output #128:(access elements in y with z's index values)")
+for j in range(len(z)):
+    if y[j].startswith('J'):
+        print("{!s}".format(y[i]))
+print("Output #129:")
+for key,value in another_dict.items():
+    print("{0:s},{1}".format(key,value))
+
+#串列生成式
+my_data = [[1,2,3],[4,5,6],[7,8,9]]
+rows_to_keep = [row for row in my_data if row[2] > 5]
+print("Output #130 (list comprehension): {}".format(rows_to_keep))
+
+#集合生成式
+my_data = [(1,2,3),(4,5,6),(7,8,9),(7,8,9)]
+set_of_tuples1={x for x in my_data}
+print("Output #131 (set comprehension):{}".format(set_of_tuples1))
+set_of_tuples2 = set(my_data)
+print("Output #132 (set funciton): {}".format(set_of_tuples2))
+#字典生成式
+my_dict = {'customer1':7,'customer2':9,'customer3':11}
+my_results ={key:value for key,value in my_dict.items() if value > 10}
+print("Output #133 (dictionary comprehension): {}".format(my_results))
+
+#############while#############
+print("Output #134:")
+x = 0
+while x < 11:
+    print("{!s}".format(x))
+    x += 1
+
+#############函式#############
+def getMean(numericValues):
+    return sum(numericValues)/len(numericValues) if len(numericValues)> 0 else float('nan')
+
+
+my_list = [2,2,4,4,6,6,8,8]
+print("SUM={}".format(sum(my_list)))
+print("LEN={}".format(len(my_list)))
+print(np.mean(my_list))
+print("Output #135 (mean): {!s}".format(getMean(my_list)))
+      
+#############try except#############   
+def getMean2(numericValues):
+    return sum(numericValues)/len(numericValues)
+my_list2 = []
+try:
+    print("Output#138: {}".format(getMean2(my_list2)))
+except ZeroDivisionError as detail:
+    print("Output #138 (Error): {}".format(float('nan')))
+    print("Output #138 (Error): {}".format(detail))
