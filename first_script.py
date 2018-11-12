@@ -11,6 +11,9 @@ import re
 from datetime import date,time,datetime,timedelta
 from operator import itemgetter
 import numpy as np
+import sys
+import glob
+import os
 
 #############String#############
 print("output #1:learn python")
@@ -358,3 +361,59 @@ try:
 except ZeroDivisionError as detail:
     print("Output #138 (Error): {}".format(float('nan')))
     print("Output #138 (Error): {}".format(detail))
+          
+#############讀取文字檔############# 
+#讀取檔案
+#input_file = sys.argv[1]
+#print("Output #143:")
+#filereader = open(input_file,'r')
+#for row in filereader:
+#    print("{}".format(row.strip()))
+#filereader.close()
+
+#print("Output #144:")
+#with open(input_file,'r',newline='') as filereader:
+#    for row in filereader:
+#        print("{}".format(row.strip()))
+
+#print("Output #145:")
+#inputPath=sys.argv[1]
+#for input_file in glob.glob(os.path.join(inputPath,'*.txt')):
+#    with open(input_file,'r',newline='') as filereader:
+#        for row in filereader:
+#            print("{}".format(row.strip()))
+            
+#############寫入文字檔 txt############# 
+#my_letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
+#max_index = len(my_letters)
+#output_file = sys.argv[1]
+#filewriter = open(output_file, 'w')
+#for index_value in range(len(my_letters)):
+#    if index_value < (max_index-1):
+#        filewriter.write(my_letters[index_value]+'\r\n')
+#    else:
+#        filewriter.write(my_letters[index_value]+'\n')
+#filewriter.close()
+#print("Output #146:Output wirtten to file")
+      
+#############寫入CSV############# 
+#my_numbers = [0,1,2,3,4,5,6,7,8,9]
+#max_index = len(my_numbers)
+#output_file = sys.argv[1]
+#filewriter = open(output_file,'a') #a:附加模式
+#for index_value in range(len(my_numbers)):
+#    if index_value < (max_index-1):
+#        filewriter.write(str(my_numbers[index_value])+',')
+#    else:
+#        filewriter.write(str(my_numbers[index_value])+'。')
+#filewriter.close()
+#print("Output #147: Output appended to file")
+      
+#############practice############# 
+a = ['a','b','c']
+b = ['d','e','f']
+c = ['g','h','i']
+
+d = a+b+c
+for i in range(len(d)):
+    print("Output d:{},{}".format(i,d[i]))
